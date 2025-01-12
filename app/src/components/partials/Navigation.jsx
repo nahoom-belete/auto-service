@@ -7,6 +7,7 @@ function Navigation() {
         <NavLink href="/" linkText= {'Home'} />
         <NavLink href="/signup" linkText= {'SignUp'} />
         <NavLink href="/login" linkText= {'Login'} />
+        <NavLink href="/new-booking" linkText= {'New Booking'} textColor={"text-primary"} />
       </div>
   </div>
   )
