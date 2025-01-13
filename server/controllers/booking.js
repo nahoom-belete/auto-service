@@ -2,7 +2,7 @@ const express = require("express");
 
 const addBooking = async (req, res) => {
     body = await req.body;
-    console.log("Details submitted")
+    console.log(await body)
 }
 
 module.exports = { addBooking }

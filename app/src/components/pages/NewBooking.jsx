@@ -13,9 +13,9 @@ function NewBooking() {
         event.preventDefault();
 
         let res = await fetch(
-            'http://localhost:8080/new-booking', {
+            'http://localhost:1380/new-booking', {
                 method: "POST",
-                body: JSON.stringify({ formData}),
+                body: JSON.stringify({formData}),
                 headers: {
                     'Content-Type': 'Application/JSON'
                 }

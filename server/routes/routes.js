@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const { submitDetails } = require("../controllers/signUpLogic.js")
+const { addBooking } = require("../controllers/booking.js")
 
 //POST
-router.post('/register', submitDetails);
+// router.post('/register', submitDetails);
 
-router.post('/new-booking', addBoking);
+router.post('/new-booking', addBooking);
 
 //GET
 
