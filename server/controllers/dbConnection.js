@@ -16,11 +16,15 @@ async function getConnection() {
     return conn
 }
 
-async function getCustomers(conn) {
-   
+async function insertBooking(conn) {
     const connection = await conn;
-    const result = await connection.execute(`SELECT * FROM customer`);
-    console.log("Result is:", result.rows);
+    await connection.execute(
+        `Insert into BOOKING(customer_customer_ID, vehicle_vehicle_ID, booking_date, booking_service_type)
+        Values(1020, 100020, TO_DATE('2025/01/25', 'yyyy/mm/dd'), 'major')`
+    );
+    // await connection.commit();
+    // console.log("Result is:", result.rows);
+    // console.log("Result:", result);
 }
 
 async function closeConnection(conn) {
@@ -28,4 +32,4 @@ async function closeConnection(conn) {
     await connection.close();  
 }
 
-module.exports = { getConnection, getCustomers, closeConnection }
+module.exports = { getConnection, insertBooking, closeConnection }
