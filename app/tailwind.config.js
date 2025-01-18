@@ -9,6 +9,12 @@ export default {
       textColor: {
         "primary": "#FA7436",
         "success": "#372B4F",  
+      },
+      backgroundColor: {
+        "primary": "#D1E8E2",
+      },
+      borderColor: {
+        "myprimary": "#116466"
       }
     }
   },
