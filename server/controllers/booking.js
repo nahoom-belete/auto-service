@@ -2,10 +2,11 @@ const express = require("express");
 const { getConnection, insertBooking, closeConnection } = require("./dbConnection.js")
 
 const addBooking = async (req, res) => {
-    body = await req.body;
-    console.log(await body)
+    const frmData = await req.body['formData'];
+    const query =  `Insert into BOOKING(customer_customer_ID, vehicle_vehicle_ID, booking_date, booking_service_type)
+        Values(1020, 100020, TO_DATE('2025/01/25', 'yyyy/mm/dd'), '${frmData.service}')`;
     const db = getConnection();
-    insertBooking(db);
+    await insertBooking(db, query);
     closeConnection(db);
 }
 

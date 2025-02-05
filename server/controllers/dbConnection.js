@@ -16,15 +16,12 @@ async function getConnection() {
     return conn
 }
 
-async function insertBooking(conn) {
+async function insertBooking(conn, query) {
     const connection = await conn;
     await connection.execute(
-        `Insert into BOOKING(customer_customer_ID, vehicle_vehicle_ID, booking_date, booking_service_type)
-        Values(1020, 100020, TO_DATE('2025/01/25', 'yyyy/mm/dd'), 'major')`
+        query
     );
-    // await connection.commit();
-    // console.log("Result is:", result.rows);
-    // console.log("Result:", result);
+    await connection.commit();
 }
 
 async function closeConnection(conn) {
