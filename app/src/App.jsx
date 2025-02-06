@@ -3,6 +3,7 @@ import Home from './components/pages/Home.jsx';
 import Login from './components/pages/Login.jsx';
 import Signup from "./components/pages/Signup.jsx";
 import NewBooking from "./components/pages/NewBooking.jsx";
+import Confirmation from "./components/pages/Confirmation.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/new-booking" element={<NewBooking />} />
+          <Route path="/confirm" element={<Confirmation />} />
       </Routes>
     </BrowserRouter>
   )
