@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-function FormPage1({activeTab, setActiveTab, formData, setFormData}) {
+function FormPage1({activeTab, setActiveTab, formData, setFormData, currentDate}) {
     library.add(faArrowRight)
 
     const handleChange = (event) => {
@@ -32,8 +32,8 @@ function FormPage1({activeTab, setActiveTab, formData, setFormData}) {
                                     <option value="suzuki">Suzuki</option>
                                 </select>
 
-                                <label htmlFor="vehicle" className="font-semibold">Select the date the service will take place:</label>
-                                <input value={formData.date} onChange={handleChange} className=" bg-white py-2 border-2 rounded-lg text-gray-950 transition ease-in-out delay-100 duration-150 active:border-orange-900 focus:outline-none focus:ring-1 focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="date" name="date" type="date" min="2025-01-14"></input>
+                                <label htmlFor="date" className="font-semibold">Select the date the service will take place:</label>
+                                <input value={formData.date} onChange={handleChange} className=" bg-white py-2 border-2 rounded-lg text-gray-950 transition ease-in-out delay-100 duration-150 active:border-orange-900 focus:outline-none focus:ring-1 focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="date" name="date" type="date" min={currentDate}></input>
 
                                 <label htmlFor="service" className="font-semibold">Select the type of service to be done:</label>
                                 <select value={formData.service} onChange={handleChange} className=" bg-white py-2 border-2 rounded-lg text-gray-950 transition ease-in-out delay-100 duration-150 active:border-orange-900 focus:outline-none focus:ring-1 focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="service" name="service">

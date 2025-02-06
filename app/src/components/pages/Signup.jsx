@@ -1,4 +1,4 @@
-import Navigation from "../partials/Navigation_LoggedOut.jsx"
+import Navigation from "../partials/NavigationLoggedOut.jsx"
 
 function Signup() {
   return (

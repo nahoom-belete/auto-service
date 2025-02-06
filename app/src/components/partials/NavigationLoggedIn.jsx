@@ -16,6 +16,9 @@ function NavigationLoggedIn() {
           <FontAwesomeIcon icon="car-side" size="2x" />
         </div>
       </div>
+      <div className='flex justify-center gap-5'>
+        <NavLink href="/" linkText= {'Dashboard'} />
+      </div>
       <div className=''>
         <div className='flex justify-end items-center flex-auto gap-5'>
           <div className="text-white self-end hover:scale-105 hover:text-orange-600">
