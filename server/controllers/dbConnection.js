@@ -5,15 +5,17 @@ const usr = "auto_admin#s";
 const psw = "admin123";
 
 async function getConnection() {
-    const conn = await oracledb.getConnection(
-        {
-            user          : usr,
-            password      : psw, 
-            connectString : connStr
-        }
-    );
-
-    return conn
+    try {
+        const connection = await oracledb.getConnection({
+                user          : usr,
+                password      : psw, 
+                connectString : connStr
+            });
+        return connection;
+    }
+    catch(error) {
+        return error;
+    }
 }
 
 async function closeConnection(conn) {
@@ -21,4 +23,4 @@ async function closeConnection(conn) {
     await connection.close();  
 }
 
-module.exports = { getConnection, closeConnection }
+module.exports = { getConnection, closeConnection}

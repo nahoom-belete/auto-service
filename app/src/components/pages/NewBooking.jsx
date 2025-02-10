@@ -5,14 +5,18 @@ import {useState} from 'react';
 
 function NewBooking() {
     const currentDate = getCurrentDate();
-    const [formData, setFormData] = useState({vehicle:"polo", date: currentDate, service: "minor", dealership:"menlyn-vw"})
+    const [formData, setFormData] = useState({vehicle:"polo", date: currentDate, service: "minor", 
+        dealership:"menlyn-vw"});
     const [activeTab, setActiveTab] = useState(true);
 
     return (
         <div>
             <NavigationLoggedIn/>
-             <FormPage1 activeTab={activeTab} setActiveTab={setActiveTab} formData={formData} setFormData={setFormData} currentDate={currentDate}></FormPage1> 
-             <FormPage2 activeTab={activeTab} setActiveTab={setActiveTab} formData={formData}></FormPage2> 
+             <FormPage1 activeTab={activeTab} setActiveTab={setActiveTab} formData={formData} 
+                setFormData={setFormData} currentDate={currentDate}>
+            </FormPage1> 
+             <FormPage2 activeTab={activeTab} setActiveTab={setActiveTab} formData={formData}>
+            </FormPage2> 
         </div>
     )
 }
@@ -27,7 +31,7 @@ function getCurrentDate() {
     month = month < 10 ? '0' + month : month;
 
     // Format the date as dd/mm/yyyy
-    const formattedDate = `${year}/${month}/${day}`;
+    const formattedDate = `${year}-${month}-${day}`;
 
     return formattedDate;
 }
