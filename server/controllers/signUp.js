@@ -7,7 +7,7 @@ const submitDetails = async (req, res) => {
       console.log(frmData)
        //Create database connection
        const db = await getConnection().then((val) => {return val});
-       //Insert booking into database
+       //Insert booking into datab                             ase
        const result = 
            await insertUser(db, frmData).then((value) => {
                return value;
@@ -35,7 +35,7 @@ async function insertUser(conn, frmData) {
             '${frmData.streetAddress}', '${frmData.city}', '${frmData.region}', '${frmData.postal}', 
             '${frmData.password}', '${frmData.title}')`;
     
-    if(result) {
+    if(result) { 
         return [false, "Booking exists"];
     } else {
         try {
@@ -46,12 +46,11 @@ async function insertUser(conn, frmData) {
             await connection.commit();
         }
         catch(error) {
-            // res.status(402).send({message: error});
             console.log(error);
             return -1;
         }
         
-        return [true, "Booking successful"];
+        return [true, "Account successfully created"];
     }
 }
 
@@ -69,7 +68,6 @@ async function checkIfUserExists(conn, frmData) {
         }
     }
     catch(error) {
-        // res.status(401).send({message: error});
         console.log(error);
         return -1;
     }
