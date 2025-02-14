@@ -7,13 +7,39 @@ import { useState } from "react";
 function SignUp() {
     const [formData, setFormData] = useState({name:"", surname:"", email: "", phone:"", title: "mr", 
             password:"", address:"", city:"", region:"", postal:""});
+
+    const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
     library.add(faArrowRight)
 
     //Handles changes in form and updates formData state defined in NewBookin                                                                                                       g Component
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value, maxLength } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+
+        if(value.length == maxLength) {
+            alert(`Maximum characters reached for ${name}`)
+        }
+        
       };
+
+      const validateEmail = (event) => {
+        const { value } = event.target;
+        let p = "[a-z]+@(";
+        validEmailDomains.forEach(domain => {
+            p = p + domain + "|";
+        });
+        p = p.substring(0, p.length - 1);
+        p = p + ")$";
+        
+        // console.log(pattern)
+
+        const rgexp = new RegExp(pattern);
+        if(rgexp.test(value)) {
+            alert("Valid")
+        } else {
+            alert("Not valid")
+        }  
+    }
 
       const handleSubmit = async (event) => {
         event.preventDefault();
@@ -44,10 +70,10 @@ function SignUp() {
                             <label htmlFor="name" className="font-semibold">
                                 Name
                                 </label>
-                                <input value={formData.name} onChange={handleChange} placeholder="Enter your name"  type="text" className=" 
+                                <input value={formData.name} onChange={handleChange} placeholder="Enter your name" maxLength={20} size="20" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="" 
+                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="name" 
                                     name="name">            
                                 </input>
                             </div>
@@ -56,7 +82,7 @@ function SignUp() {
                                 <label htmlFor="surname" className="font-semibold">
                                 Surname
                                 </label>
-                                <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname"  type="text" className=" 
+                                <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname" maxLength={20} size="20" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="surname" 
@@ -69,10 +95,8 @@ function SignUp() {
                                 <label htmlFor="email" className="font-semibold">
                                 Email
                                 </label>
-                                <input value={formData.email} onChange={handleChange} placeholder="Enter your email" type="email" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="email" 
+                                <input value={formData.email} onBlur={validateEmail} title='Oi' onChange={handleChange} placeholder="Enter your email" type="email" pattern=".+@[a-z]+\.com" maxLength={40} size="20" className=" 
+                                    bg-white py-2 border rounded-lg text-gray-950 " id="email" 
                                     name="email">            
                                 </input>
                             </div>
@@ -82,7 +106,7 @@ function SignUp() {
                                 <label htmlFor="phone" className="font-semibold">
                                 Phone number
                                 </label>
-                                <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="text" className=" 
+                                <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="tel" maxLength={10} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="phone" 
@@ -110,7 +134,7 @@ function SignUp() {
                                 <label htmlFor="password" className="font-semibold">
                                 Password
                                 </label>
-                                <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" className=" 
+                                <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" maxLength={20} size="15" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="password" 
@@ -122,7 +146,7 @@ function SignUp() {
                                 <label htmlFor="verify-password" className="font-semibold">
                                 Verify Password
                                 </label>
-                                <input placeholder="Enter password again" type="password" className=" 
+                                <input placeholder="Enter password again" type="password" maxLength={20} size="15" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="verify-password" 
@@ -136,7 +160,7 @@ function SignUp() {
                             <label htmlFor="address" className="font-semibold">
                                 Street Address
                                 </label>
-                                <input value={formData.address} onChange={handleChange} placeholder="Enter your street address"  type="text" className=" 
+                                <input value={formData.address} onChange={handleChange} placeholder="Enter your street address" maxLength={30} size="15" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="address" 
@@ -148,7 +172,7 @@ function SignUp() {
                                 <label htmlFor="city" className="font-semibold">
                                 City
                                 </label>
-                                <input value={formData.city} onChange={handleChange} placeholder="Enter your city"  type="text" className=" 
+                                <input value={formData.city} onChange={handleChange} placeholder="Enter your city" maxLength={20} size="10" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="city" 
@@ -161,7 +185,7 @@ function SignUp() {
                                 <label htmlFor="region" className="font-semibold">
                                 Region
                                 </label>
-                                <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" className=" 
+                                <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" maxLength={20} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="region" 
@@ -173,7 +197,7 @@ function SignUp() {
                                 <label htmlFor="postal" className="font-semibold">
                                 Postal code
                                 </label>
-                                <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" className=" 
+                                <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" maxLength={10} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="postal" 
