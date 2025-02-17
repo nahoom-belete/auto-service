@@ -1,6 +1,6 @@
 function TextInput({labelContent, htmlFor, formData, setFormData, 
-    placeholder, maxLength, size, type, id, name, value, validEmailDomains = {}}) {
-    
+    placeholder, maxLength, size, type, id, name, value, validEmailDomains}) {
+
     const validateEmail = (event) => {
         const { value } = event.target;
         let p = "[a-z]+@(";
@@ -38,7 +38,9 @@ function TextInput({labelContent, htmlFor, formData, setFormData,
          <label htmlFor={htmlFor} className="font-semibold">
             {labelContent}
         </label>
-        <input value={value} onBlur={name == "email" ? validateEmail : () => {return 0;} } onChange={handleChange} placeholder={placeholder} maxLength={maxLength} size={size} type={type} className=" 
+        <input value={value} onBlur={id == "email" ? validateEmail : () => {return 0;} } 
+            onChange={handleChange} placeholder={placeholder} maxLength={maxLength} size={size} 
+            type={type} autoComplete="true" className=" 
             bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
             duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
             focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id={name} 

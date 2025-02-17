@@ -1,19 +1,17 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import NavigationLoggedOut from "../partials/NavigationLoggedOut.jsx";
 import TextInput from "../partials/TextInput.jsx";
 import SelectInput from "../partials/SelectInput.jsx";
-import { useState } from "react";
 
 function SignUp() {
     const [formData, setFormData] = useState({name:"", surname:"", email: "", phone:"", title: "mr", 
-            password:"", address:"", city:"", region:"", postal:""});
-    const [verifyPassword, setVerifyPassword] = useState("");
+            password:"", verifyPassword:"", address:"", city:"", region:"", postal:""});
 
-    const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
+    const validEmailDomains = import.meta.env.VITE_VALID_EMAIL_DOMAINS.split(",");
 
-    const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
     library.add(faArrowRight)
   
       const handleSubmit = async (event) => {
@@ -40,7 +38,6 @@ function SignUp() {
                     </h1>
                     <div className="w-full flex flex-col gap-10">
                         <div id="inputs-personal" className="grid grid-cols-2 gap-5 border-2 rounded-lg p-5">
-
                             {/*Name */}
                             <TextInput 
                                 labelContent="Name" 
@@ -60,7 +57,7 @@ function SignUp() {
                                 labelContent="Email" 
                                 htmlFor="email" formData={formData} setFormData= {setFormData}  
                                 placeholder="Enter your email" maxLength="30" size="20" type="email" 
-                                id="email" name="email" value={formData.email} validEmailDomains={validEmailDomains} 
+                                id="email" name="email" value={formData.email} validEmailDomains={validEmailDomains}
                             />
 
                             {/*Phone */}
@@ -79,7 +76,6 @@ function SignUp() {
                             />
                             
                              {/*Password */}
-
                              <TextInput 
                                 labelContent="Password" 
                                 htmlFor="password" formData={formData} setFormData= {setFormData}  
@@ -89,9 +85,9 @@ function SignUp() {
                             {/*Verify Password */}
                             <TextInput  
                                 labelContent="Verify Password" 
-                                htmlFor="verify-password" formData={formData} setFormData= {setFormData}  
+                                htmlFor="verifyPassword" formData={formData} setFormData= {setFormData}  
                                 placeholder="Re-enter your password" maxLength="20" size="15" type="password" 
-                                id="verify-password" name="verify-password" value={{}} 
+                                id="verify-password" name="verifyPassword" value={formData.verifyPassword} 
                             />
                         </div>
                         <div id="inputs-address" className="grid grid-cols-2 gap-5 border-2 rounded-lg p-5">
