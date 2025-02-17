@@ -12,12 +12,11 @@ function SignUp() {
     const [verifyPassword, setVerifyPassword] = useState("");
 
     const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
-    library.add(faArrowRight)
 
-      
-    
+    const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
+    library.add(faArrowRight)
+  
       const handleSubmit = async (event) => {
-        form
         event.preventDefault();
         const res = await fetch('http://localhost:8080/register', {
                 method: "POST",
@@ -41,6 +40,7 @@ function SignUp() {
                     </h1>
                     <div className="w-full flex flex-col gap-10">
                         <div id="inputs-personal" className="grid grid-cols-2 gap-5 border-2 rounded-lg p-5">
+
                             {/*Name */}
                             <TextInput 
                                 labelContent="Name" 
@@ -54,7 +54,7 @@ function SignUp() {
                                 htmlFor="surname" formData={formData} setFormData= {setFormData}  
                                 placeholder="Enter your surname" maxLength="20" size="20" type="text" 
                                 id="surname" name="surname" value={formData.surname} 
-                            />
+                            />                        
                             {/*Email */}
                             <TextInput 
                                 labelContent="Email" 
@@ -70,6 +70,7 @@ function SignUp() {
                                 placeholder="Enter your phone number" maxLength="10" size="10" type="tel" 
                                 id="phone" name="phone" value={formData.phone} 
                             />
+
                             {/*Title */}
                             <SelectInput 
                                 labelContent="Title" 
@@ -78,6 +79,7 @@ function SignUp() {
                             />
                             
                              {/*Password */}
+
                              <TextInput 
                                 labelContent="Password" 
                                 htmlFor="password" formData={formData} setFormData= {setFormData}  
@@ -120,7 +122,7 @@ function SignUp() {
                                 htmlFor="postal" formData={formData} setFormData= {setFormData}  
                                 placeholder="Enter your postal code" maxLength="10" size="10" type="text" 
                                 id="postal" name="postal" value={formData.postal} 
-                            />
+                            />                          
                         </div>
                     </div>
                     <div className="flex gap-2 self-end p-3 transition ease-in-out delay-100 duration-150

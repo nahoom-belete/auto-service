@@ -41,6 +41,7 @@ async function insertUser(conn, frmData) {
              
     
     if(result) { 
+    if(result) { 
         return [false, "Booking exists"];
     } else {
         try {
@@ -55,6 +56,7 @@ async function insertUser(conn, frmData) {
             return -1;
         }
         
+        return [true, "Account successfully created"];
         return [true, "Account successfully created"];
     }
 }
