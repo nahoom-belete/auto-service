@@ -2,48 +2,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import NavigationLoggedOut from "../partials/NavigationLoggedOut.jsx";
+import TextInput from "../partials/TextInput.jsx";
+import SelectInput from "../partials/SelectInput.jsx";
 import { useState } from "react";
 
 function SignUp() {
     const [formData, setFormData] = useState({name:"", surname:"", email: "", phone:"", title: "mr", 
             password:"", address:"", city:"", region:"", postal:""});
+    const [verifyPassword, setVerifyPassword] = useState("");
 
     const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
 
     const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
     library.add(faArrowRight)
-
-    //Handles changes in form and updates formData state defined in NewBookin                                                                                                       g Component
-    const handleChange = (event) => {
-        const { name, value, maxLength } = event.target;
-        const { name, value, maxLength } = event.target;
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-
-        if(value.length == maxLength) {
-            alert(`Maximum characters reached for ${name}`)
-        }
-        
-      };
-
-      const validateEmail = (event) => {
-        const { value } = event.target;
-        let p = "[a-z]+@(";
-        validEmailDomains.forEach(domain => {
-            p = p + domain + "|";
-        });
-        p = p.substring(0, p.length - 1);
-        p = p + ")$";
-        
-        // console.log(pattern)
-
-        const rgexp = new RegExp(pattern);
-        if(rgexp.test(value)) {
-            alert("Valid")
-        } else {
-            alert("Not valid")
-        }  
-    }
-
+  
       const handleSubmit = async (event) => {
         event.preventDefault();
         const res = await fetch('http://localhost:8080/register', {
@@ -68,154 +40,89 @@ function SignUp() {
                     </h1>
                     <div className="w-full flex flex-col gap-10">
                         <div id="inputs-personal" className="grid grid-cols-2 gap-5 border-2 rounded-lg p-5">
-                          {/*Name */}
-                          <div className="flex items-center gap-5">
-                            <label htmlFor="name" className="font-semibold">
-                                Name
-                                </label>
-                                <input value={formData.name} onChange={handleChange} placeholder="Enter your name" maxLength={20} size="20" type="text" className=" 
-                                <input value={formData.name} onChange={handleChange} placeholder="Enter your name" maxLength={20} size="20" type="text" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="name" 
-                                    name="name">            
-                                </input>
-                            </div>
-                             {/*Surname */}
-                            <div className="flex items-center gap-5">
-                                <label htmlFor="surname" className="font-semibold">
-                                Surname
-                                </label>
-                                <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname" maxLength={20} size="20" type="text" className=" 
-                                <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname" maxLength={20} size="20" type="text" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="surname" 
-                                    name="surname">            
-                                </input>
-                            </div>
 
+                            {/*Name */}
+                            <TextInput 
+                                labelContent="Name" 
+                                htmlFor="name" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your name" maxLength="20" size="20" type="text" 
+                                id="name" name="name" value={formData.name} 
+                            />
+                            {/*Surname */}
+                            <TextInput 
+                                labelContent="Surname" 
+                                htmlFor="surname" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your surname" maxLength="20" size="20" type="text" 
+                                id="surname" name="surname" value={formData.surname} 
+                            />                        
                             {/*Email */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="email" className="font-semibold">
-                                Email
-                                </label>
-                                <input value={formData.email} onBlur={validateEmail} title='Oi' onChange={handleChange} placeholder="Enter your email" type="email" pattern=".+@[a-z]+\.com" maxLength={40} size="20" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 " id="email" 
-                                    name="email">            
-                                </input>
-                            </div>
+                            <TextInput 
+                                labelContent="Email" 
+                                htmlFor="email" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your email" maxLength="30" size="20" type="email" 
+                                id="email" name="email" value={formData.email} validEmailDomains={validEmailDomains} 
+                            />
 
                             {/*Phone */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="phone" className="font-semibold">
-                                Phone number
-                                </label>
-                                <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="tel" maxLength={10} size="10" className=" 
-                                <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="tel" maxLength={10} size="10" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="phone" 
-                                    name="phone">            
-                                </input>
-                            </div>
+                            <TextInput 
+                                labelContent="Phone number" 
+                                htmlFor="phone" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your phone number" maxLength="10" size="10" type="tel" 
+                                id="phone" name="phone" value={formData.phone} 
+                            />
+
                             {/*Title */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="title" className="font-semibold">
-                                Title
-                                </label>
-                                <select value={formData.title} onChange={handleChange} className=" 
-                                bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="title" 
-                                name="title">
-                                <option value="mr">Mr</option>
-                                <option value="mrs">Mrs</option>
-                                <option value="miss">Miss</option>
-                                <option value="dr">Dr</option>
-                            </select>
-                            </div>
+                            <SelectInput 
+                                labelContent="Title" 
+                                htmlFor="title" formData={formData} setFormData= {setFormData}   
+                                id="title" name="title" options={["mr","mrs", "miss", "dr"]}
+                            />
+                            
                              {/*Password */}
-                             <div className="flex items-center gap-6">
-                                <label htmlFor="password" className="font-semibold">
-                                Password
-                                </label>
-                                <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" maxLength={20} size="15" className=" 
-                                <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" maxLength={20} size="15" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="password" 
-                                    name="password">            
-                                </input>
-                            </div>
+
+                             <TextInput 
+                                labelContent="Password" 
+                                htmlFor="password" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your password" maxLength="20" size="15" type="password" 
+                                id="password" name="password" value={formData.password}  
+                            />
                             {/*Verify Password */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="verify-password" className="font-semibold">
-                                Verify Password
-                                </label>
-                                <input placeholder="Enter password again" type="password" maxLength={20} size="15" className=" 
-                                <input placeholder="Enter password again" type="password" maxLength={20} size="15" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="verify-password" 
-                                    name="verify-password">            
-                                </input>
-                            </div>
+                            <TextInput  
+                                labelContent="Verify Password" 
+                                htmlFor="verify-password" formData={formData} setFormData= {setFormData}  
+                                placeholder="Re-enter your password" maxLength="20" size="15" type="password" 
+                                id="verify-password" name="verify-password" value={{}} 
+                            />
                         </div>
                         <div id="inputs-address" className="grid grid-cols-2 gap-5 border-2 rounded-lg p-5">
                           {/*Street Address */}
-                          <div className="flex items-center gap-5">
-                            <label htmlFor="address" className="font-semibold">
-                                Street Address
-                                </label>
-                                <input value={formData.address} onChange={handleChange} placeholder="Enter your street address" maxLength={30} size="15" type="text" className=" 
-                                <input value={formData.address} onChange={handleChange} placeholder="Enter your street address" maxLength={30} size="15" type="text" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="address" 
-                                    name="address">            
-                                </input>
-                            </div>
+                            <TextInput 
+                                labelContent="Street Address" 
+                                htmlFor="address" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your street address" maxLength="30" size="15" type="text" 
+                                id="address" name="address" value={formData.address} 
+                            />
                              {/*City*/}
-                            <div className="flex items-center gap-5">
-                                <label htmlFor="city" className="font-semibold">
-                                City
-                                </label>
-                                <input value={formData.city} onChange={handleChange} placeholder="Enter your city" maxLength={20} size="10" type="text" className=" 
-                                <input value={formData.city} onChange={handleChange} placeholder="Enter your city" maxLength={20} size="10" type="text" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="city" 
-                                    name="city">            
-                                </input>
-                            </div>
-
+                             <TextInput 
+                                labelContent="City" 
+                                htmlFor="city" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your city" maxLength="20" size="10" type="text" 
+                                id="city" name="city" value={formData.city} 
+                            />               
                             {/*Region */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="region" className="font-semibold">
-                                Region
-                                </label>
-                                <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" maxLength={20} size="10" className=" 
-                                <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" maxLength={20} size="10" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="region" 
-                                    name="region">            
-                                </input>
-                            </div>
+                            <TextInput 
+                                labelContent="Region" 
+                                htmlFor="region" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your region" maxLength="20" size="10" type="text" 
+                                id="region" name="region" value={formData.region} 
+                            />
                             {/*Postal code */}
-                            <div className="flex items-center gap-6">
-                                <label htmlFor="postal" className="font-semibold">
-                                Postal code
-                                </label>
-                                <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" maxLength={10} size="10" className=" 
-                                <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" maxLength={10} size="10" className=" 
-                                    bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
-                                    duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
-                                    focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="postal" 
-                                    name="postal">            
-                                </input>
-                            </div>
+                            <TextInput  
+                                labelContent="Postal" 
+                                htmlFor="postal" formData={formData} setFormData= {setFormData}  
+                                placeholder="Enter your postal code" maxLength="10" size="10" type="text" 
+                                id="postal" name="postal" value={formData.postal} 
+                            />                          
                         </div>
                     </div>
                     <div className="flex gap-2 self-end p-3 transition ease-in-out delay-100 duration-150
