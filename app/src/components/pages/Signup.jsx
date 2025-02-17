@@ -9,10 +9,13 @@ function SignUp() {
             password:"", address:"", city:"", region:"", postal:""});
 
     const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
+
+    const validEmailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "aol.com", "hotmail.co.uk", "msn.com"];
     library.add(faArrowRight)
 
     //Handles changes in form and updates formData state defined in NewBookin                                                                                                       g Component
     const handleChange = (event) => {
+        const { name, value, maxLength } = event.target;
         const { name, value, maxLength } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
@@ -71,6 +74,7 @@ function SignUp() {
                                 Name
                                 </label>
                                 <input value={formData.name} onChange={handleChange} placeholder="Enter your name" maxLength={20} size="20" type="text" className=" 
+                                <input value={formData.name} onChange={handleChange} placeholder="Enter your name" maxLength={20} size="20" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="name" 
@@ -82,6 +86,7 @@ function SignUp() {
                                 <label htmlFor="surname" className="font-semibold">
                                 Surname
                                 </label>
+                                <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname" maxLength={20} size="20" type="text" className=" 
                                 <input value={formData.surname} onChange={handleChange} placeholder="Enter your surname" maxLength={20} size="20" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
@@ -106,6 +111,7 @@ function SignUp() {
                                 <label htmlFor="phone" className="font-semibold">
                                 Phone number
                                 </label>
+                                <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="tel" maxLength={10} size="10" className=" 
                                 <input value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" type="tel" maxLength={10} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
@@ -135,6 +141,7 @@ function SignUp() {
                                 Password
                                 </label>
                                 <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" maxLength={20} size="15" className=" 
+                                <input value={formData.password} onChange={handleChange} placeholder="Enter your password" type="password" maxLength={20} size="15" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="password" 
@@ -146,6 +153,7 @@ function SignUp() {
                                 <label htmlFor="verify-password" className="font-semibold">
                                 Verify Password
                                 </label>
+                                <input placeholder="Enter password again" type="password" maxLength={20} size="15" className=" 
                                 <input placeholder="Enter password again" type="password" maxLength={20} size="15" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
@@ -161,6 +169,7 @@ function SignUp() {
                                 Street Address
                                 </label>
                                 <input value={formData.address} onChange={handleChange} placeholder="Enter your street address" maxLength={30} size="15" type="text" className=" 
+                                <input value={formData.address} onChange={handleChange} placeholder="Enter your street address" maxLength={30} size="15" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="address" 
@@ -172,6 +181,7 @@ function SignUp() {
                                 <label htmlFor="city" className="font-semibold">
                                 City
                                 </label>
+                                <input value={formData.city} onChange={handleChange} placeholder="Enter your city" maxLength={20} size="10" type="text" className=" 
                                 <input value={formData.city} onChange={handleChange} placeholder="Enter your city" maxLength={20} size="10" type="text" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
@@ -186,6 +196,7 @@ function SignUp() {
                                 Region
                                 </label>
                                 <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" maxLength={20} size="10" className=" 
+                                <input value={formData.region} onChange={handleChange} placeholder="Enter your region" type="text" maxLength={20} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
                                     focus:ring-orange-800 hover:border-orange-700 hover:scale-105" id="region" 
@@ -197,6 +208,7 @@ function SignUp() {
                                 <label htmlFor="postal" className="font-semibold">
                                 Postal code
                                 </label>
+                                <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" maxLength={10} size="10" className=" 
                                 <input value={formData.postal} onChange={handleChange} placeholder="Enter your postal code" type="text" maxLength={10} size="10" className=" 
                                     bg-white py-2 border rounded-lg text-gray-950 transition ease-in-out delay-100 
                                     duration-150 active:border-orange-900 focus:outline-none focus:ring-1 
