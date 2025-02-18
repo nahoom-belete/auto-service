@@ -13,6 +13,7 @@ function NavigationLoggedOut() {
           <NavLink href="/signup" linkText= {'Sign Up'} />
           <NavLink href="/login" linkText= {'Login'} />
           <NavLink href="/new-booking" linkText= {'New Booking'} textColor={"text-primary"} />
+          <NavLink href="/test" linkText= {'Test'} />
         </div>
       </div>
     </div>
