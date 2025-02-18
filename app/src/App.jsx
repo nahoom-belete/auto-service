@@ -4,6 +4,7 @@ import Login from './components/pages/Login.jsx';
 import SignUp from "./components/pages/Signup.jsx";
 import NewBooking from "./components/pages/NewBooking.jsx";
 import Confirmation from "./components/pages/Confirmation.jsx";
+import Test from "./components/pages/Test.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/new-booking" element={<NewBooking />} />
           <Route path="/confirm" element={<Confirmation />} />
+          <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   )
