@@ -1,8 +1,12 @@
+import { useState } from "react";
 function TextInput({labelContent, htmlFor, formData, setFormData, 
     placeholder, maxLength, size, type, id, name, value, validEmailDomains}) {
 
+    const [errorMsg, setErrorMsg] = useState("");
+
     const validateEmail = (event) => {
         const { value } = event.target;
+        let { placeholder } = event.target;
         let p = "[a-z]+@(";
         validEmailDomains.forEach(domain => {
             p = p + domain + "|";
@@ -13,11 +17,8 @@ function TextInput({labelContent, htmlFor, formData, setFormData,
         // console.log(pattern)
 
         const rgexp = new RegExp(p);
-        if(rgexp.test(value)) {
-            alert("Valid")
-        } else {
-            alert("Not valid")
-        }  
+        if(!rgexp.test(value))
+            setErrorMsg("Email entered is invalid");
     }
 
     const validatePhone = (event) => {
@@ -29,7 +30,7 @@ function TextInput({labelContent, htmlFor, formData, setFormData,
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
         if(value.length == maxLength) {
-            alert(`Maximum characters reached for ${name}`)
+            setErrorMsg(`Maximum characters reached for ${name}`);
         }
     };
     
@@ -42,10 +43,11 @@ function TextInput({labelContent, htmlFor, formData, setFormData,
             onChange={handleChange} placeholder={placeholder} maxLength={maxLength}
             type={type} autoComplete="true" className=" 
             bg-white p-2 border rounded text-gray-950 transition ease-in-out delay-100 
-            duration-150 active:border-blue-600 focus:outline-none focus:ring-1
-            focus:ring-blue-600 hover:border-blue-600 hover:scale-105" id={name} 
+            duration-150 active:border-[#371eff] focus:outline-none focus:ring-1
+            focus:ring-blue-600 hover:border-[#371eff] hover:scale-105" id={name} 
             name={name}>            
         </input>
+        <div className="text-red-600 font-semibold">{errorMsg}</div>
     </div>
    ) 
 }
