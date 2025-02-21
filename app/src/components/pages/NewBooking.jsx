@@ -3,6 +3,7 @@ import FormPage1 from "../partials/FormPage1.jsx"
 import FormPage2 from "../partials/FormPage2.jsx"
 import {useState} from 'react';
 import logo from "../../images/logo.webp";
+import { TruckIcon } from '@heroicons/react/24/solid';
 
 function NewBooking() {
     const currentDate = getCurrentDate();
@@ -30,6 +31,48 @@ function NewBooking() {
                             px-5 py-2 rounded text-sm text-gray-40">
                                 View
                             </a>
+                        </div>
+                        <div className="flex">
+                            <div className="m-10 flex flex-col gap-5 min-w-[250px] max-w-[30px] min-h-fit border-s-[#4437a0] border-s-[5px]">
+                                <div className="p-5 font-semibold bg-[#c8c1ff]">
+                                    Vehicle Selection
+                                </div>
+                                <div className="p-5 font-semibold">
+                                    Schedule Date
+                                </div>
+                                <div className="p-5 font-semibold">
+                                    Service Type
+                                </div>
+                                <div className="p-5 font-semibold">
+                                    Dealership Selection
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-3 gap-5 w-full pt-5 pe-10">
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0] 
+                                    hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0] 
+                                    hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0] 
+                                    hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0]
+                                    hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0]
+                                    hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                                <div className="flex justify-center items-center min-w-full min-h-full bg-[#4437a0]
+                                hover:bg-[#c8c1ff]">
+                                   <TruckIcon className="size-20 text-[#fff]"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -9,21 +9,21 @@ const handleHover = (event) => {
 function NavigationLoggedIn() {
   return (
     <div>
-      <div className="flex gap-2 min-h-screen border-e-2 bg-[#fff] shadow-lg w-[60px]">
+      <div className="flex gap-2 min-h-screen border-e-2 bg-[#5645d4] shadow-lg w-[60px]">
         <div className="flex flex-col gap-y-5 items-center w-full">
-          <div onMouseOver={handleHover} className="flex justify-center group hover:bg-[#4437a0]  p-5 w-full">
+          <div onMouseOver={handleHover} className="flex justify-center group hover:bg-[#c8c1ff] p-5 w-full">
             <a href="#">
-                <UserCircleIcon className="size-5 text-[#4437a0] group-hover:text-white" />
+                <UserCircleIcon className="size-5 text-[#fff] group-hover:text-[#4437a0]" />
             </a>
           </div>
-          <div className="flex justify-center group hover:bg-[#4437a0] p-5 w-full">
+          <div className="flex justify-center group hover:bg-[#c8c1ff] p-5 w-full">
             <a href="#">
-              <HomeIcon className="size-5 text-[#4437a0] group-hover:text-white" />
+              <HomeIcon className="size-5 text-[#fff] group-hover:text-[#4437a0]" />
             </a>
           </div>
-          <div className="flex justify-center group hover:bg-[#4437a0] p-5 w-full">
+          <div className="flex justify-center group hover:bg-[#c8c1ff] p-5 w-full">
             <a href="#">
-                <TruckIcon className="size-5 text-[#4437a0] group-hover:text-white" />
+                <TruckIcon className="size-5 text-[#fff] group-hover:text-[#4437a0]" />
             </a>
           </div>
         </div>
