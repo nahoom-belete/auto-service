@@ -1,4 +1,4 @@
-import "../../styles/App.css"
+
 
 function StatusBar({color, message, isVisible}) {
   return (

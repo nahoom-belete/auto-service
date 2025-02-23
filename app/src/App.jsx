@@ -6,6 +6,7 @@ import NewBooking from "./components/pages/NewBooking.jsx";
 import Confirmation from "./components/pages/Confirmation.jsx";
 import Test from "./components/pages/Test.jsx";
 
+
 function App() {
   return (
     <BrowserRouter>
