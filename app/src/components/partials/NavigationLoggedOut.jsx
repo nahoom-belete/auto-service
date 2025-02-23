@@ -10,10 +10,10 @@ function NavigationLoggedOut() {
       <div className=''>
         <div className='flex justify-end items-center flex-auto gap-2'>
           <NavLink href="/" linkText= {'Home'} />
-          <NavLink href="/signup" linkText= {'Sign Up'} />
-          <NavLink href="/login" linkText= {'Login'} />
-          <NavLink href="/new-booking" linkText= {'New Booking'} textColor={"text-primary"} />
-          <NavLink href="/test" linkText= {'Test'} />
+          <NavLink href="/auto-service/signup" linkText= {'Sign Up'} />
+          <NavLink href="/auto-service/login" linkText= {'Login'} />
+          <NavLink href="/auto-service/new-booking" linkText= {'New Booking'} textColor={"text-primary"} />
+          <NavLink href="/auto-service/test" linkText= {'Test'} />
         </div>
       </div>
     </div>
