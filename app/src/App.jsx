@@ -9,7 +9,7 @@ import Test from "./components/pages/Test.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/auto-service">
       <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/login" element={<Login />} />
