@@ -30,7 +30,7 @@ function Test() {
             <div className="container grid gap-x-5 justify-items-center lg:justify-items-start grid-cols-1 lg:grid-cols-2 max-h-screen-lg max-w-screen-lg rounded bg-white shadow-xl">
                 <form className="flex flex-col gap-5 text-sm px-8 lg:px-16 py-10">
                     <div>
-                        <h2 className="font-semibold text-3xl text-[#371eff]">Sign up now</h2>
+                        <h2 className="font-semibold text-3xl text-[#201a5e] mb-2">Sign up now</h2>
                         <p className="text-gray-500">Create a free account</p>
                     </div>
                     <div className="grid gap-3 text-sm grid-cols-1">
@@ -66,7 +66,7 @@ function Test() {
                     </div>
                     <div className="flex gap-2 w-40 lg:w-80 transition ease-in-out delay-100 duration-150
                         hover:text-white hover:scale-110">
-                        <button onClick={handleSubmit} className='bg-[#371eff] px-3 py-2 w-40 lg:w-80'> Sign Up </button>
+                        <button onClick={handleSubmit} className='bg-[#201a5e] px-3 py-2 w-40 font-semibold lg:w-80 hover:bg-[#c8c1ff] hover:text-[#201a5e] text-white text-sm lg:text-md'> Sign Up </button>
                     </div>
                 </form>
                  <div className="hidden lg:block">

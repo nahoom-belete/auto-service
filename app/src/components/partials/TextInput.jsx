@@ -43,8 +43,8 @@ function TextInput({labelContent, htmlFor, formData, setFormData,
             onChange={handleChange} placeholder={placeholder} maxLength={maxLength}
             type={type} autoComplete="true" className=" 
             bg-white p-2 border rounded text-gray-950 transition ease-in-out delay-100 
-            duration-150 active:border-[#371eff] focus:outline-none focus:ring-1
-            focus:ring-blue-600 hover:border-[#371eff] hover:scale-105" id={name} 
+            duration-150 active:border-[#201a5e] focus:outline-none focus:ring-1
+            focus:ring-blue-600 hover:border-[#201a5e] hover:scale-105" id={name} 
             name={name}>            
         </input>
         <div className="text-red-600 font-semibold">{errorMsg}</div>
