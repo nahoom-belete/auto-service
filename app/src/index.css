@@ -10,3 +10,22 @@ html, body{
 body {
   background: #efefef;
 }
+
+div::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #201a5e9c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #201a5e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c8c1ff;
+}

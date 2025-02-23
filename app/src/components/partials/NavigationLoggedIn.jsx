@@ -8,7 +8,7 @@ const handleHover = (event) => {
 
 function NavigationLoggedIn() {
   return (
-    <div>
+    <div className="hidden lg:block">
       <div className="flex gap-2 min-h-screen border-e-2 bg-[#201a5e] shadow-lg w-[60px]">
         <div className="flex flex-col gap-y-5 items-center w-full">
           <div onMouseOver={handleHover} className="flex justify-center group hover:bg-[#c8c1ff] p-5 w-full">
