@@ -15,13 +15,13 @@ function NewBooking() {
         <div className="flex flex-col max-h-full">
                 <div className="bg-[#FFF] shadow-lg w-screen min-h-[40px] border-b-[1px] border-gray-300">
                 </div>
-                <div className="flex w-screen min-h-screen">
+                <div className="flex flex-col lg:flex-row w-screen min-h-screen">
                     <NavigationLoggedIn/>
                     <div className="flex flex-col bg-[#FFF] shadow-lg w-screen min-h-screen overflow-hidden">
                         <div className="min-w-full min-h-[60px] bg-[#f8f8f8]">
                         
                         </div>
-                        <div className="z-30 flex items-end gap-2 ps-5 border-b-[1px] border-gray-300 
+                        <div className="z-30 flex items-end gap-2 border-b-[1px] border-gray-300 
                             min-w-full min-h-[60px]">
                             <a href="#" className="z-50 mb-[-2px] border border-b-[5px] border-b-white rounded text-sm  
                             text-[#201a5e] px-5 py-2">
@@ -48,7 +48,7 @@ function NewBooking() {
                                 </div>
                             </div>
                             <div className="flex ps-5 lg:justify-start w-full pt-5">
-                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:w-fit pe-1 h-[400px] overflow-y-scroll">
+                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 w-screen lg:w-fit pe-1 h-[400px] overflow-y-scroll">
                                     <VehicleCard/>
                                     <VehicleCard/>
                                     <VehicleCard/>
