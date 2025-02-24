@@ -13,8 +13,6 @@ function NewBooking() {
 
     return (
         <div className="flex flex-col max-h-full">
-                <div className="bg-[#FFF] shadow-lg w-screen min-h-[40px] border-b-[1px] border-gray-300">
-                </div>
                 <div className="flex flex-col lg:flex-row w-screen min-h-screen">
                     <NavigationLoggedIn/>
                     <div className="flex flex-col bg-[#FFF] shadow-lg w-screen min-h-screen overflow-hidden">
